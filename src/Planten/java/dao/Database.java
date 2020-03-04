@@ -36,9 +36,6 @@ public class Database {
 
     private void readDbPropertiesFromResource() {
         ClassLoader cl = Database.class.getClassLoader();
-        //todo 1 : maak een main.resources directory met een file config.properties (zie cursus)
-        //todo 2 : plaats uw databaseconnectieparameters in de file config.properties
-
         System.out.println("read");
         try (InputStream inputStream =
                      cl.getResourceAsStream("main/resources/config.properties")) {
@@ -60,7 +57,6 @@ public class Database {
     private Connection createConnection() {
         //Het database Object aanmaken
         Connection dbConnection = null;
-        //todo 3 : Vervolledig de methode createConnection()
         try {
             Class.forName(jdbcDriver);
             dbConnection = DriverManager.getConnection(url, user, password);
