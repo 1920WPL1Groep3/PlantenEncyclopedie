@@ -25,9 +25,31 @@ public class Plant {
         return id;
     }
 
-    public String getName(){
-        return this.geslacht +" "+ this.soort +" "+ this.variatie;
+    public String getType() {
+        return type;
     }
 
+    public String getFamilie() {
+        return familie;
+    }
 
+    public String getGeslacht() {
+        return geslacht;
+    }
+
+    public String getSoort() {
+        return soort;
+    }
+
+    public String getVariatie() {
+        return variatie;
+    }
+
+    public int getMinPlantdichtheid() {
+        return minPlantdichtheid;
+    }
+
+    public int getMaxPlantdichtheid() {
+        return maxPlantdichtheid;
+    }
 }
