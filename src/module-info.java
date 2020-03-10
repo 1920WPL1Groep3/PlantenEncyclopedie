@@ -3,6 +3,7 @@ module PlantenEncyclopedie {
     requires javafx.controls;
     requires java.desktop;
     requires java.sql;
+    requires controlsfx;
 
     opens Planten ;
 }

@@ -36,7 +36,6 @@ public class Database {
 
     private void readDbPropertiesFromResource() {
         ClassLoader cl = Database.class.getClassLoader();
-
         System.out.println("read");
         try (InputStream inputStream =
                      cl.getResourceAsStream("config.properties")) {
