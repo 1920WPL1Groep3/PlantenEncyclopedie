@@ -12,10 +12,12 @@ public class PlantDAO implements Queries {
 
     private Connection dbConnection;
     private PreparedStatement stmtSelectById;
+    private PreparedStatement stmtSelectByPlant;
 
     public PlantDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
         stmtSelectById = dbConnection.prepareStatement(GETPLANTBYID);
+        stmtSelectByPlant = dbConnection.prepareStatement(GETPLANTSBYPLANT);
     }
 
     //TODO te testen
@@ -39,19 +41,29 @@ public class PlantDAO implements Queries {
         return plant;
     }
 
+    //TODO te testen
+
     /**
-     * @param plantQuery -> query van de kenmerken uit de plant tabel
-     * @return -> lijst met planten die voldoen aan de zoekqueries
-     * @throws SQLException
+     * @param fgsv -> familie, geslacht, soort, variant
+     * @return Geeft een lijst terug van alle planten die voldoen aan de ingegeven kenmerken
      */
-    public List<Plant> getPlantBySearch(String plantQuery) throws SQLException {
+    public List<Plant> getPlantsByKenmerken (String type, String familie, String fgsv) throws SQLException {
         List<Plant> planten = null;
-        String query = plantQuery;
 
+        int iTrue = (type.isBlank())? 1:0;
+        stmtSelectByPlant.setString(1,type);
+        stmtSelectByPlant.setInt(2,iTrue);
 
-        PreparedStatement stmtSelectBySearch = dbConnection.prepareStatement(query);
-        ResultSet rs = stmtSelectBySearch.executeQuery();
-        while (rs.next()) {
+        iTrue = (familie.isBlank())? 1:0;
+        stmtSelectByPlant.setString(3,type);
+        stmtSelectByPlant.setInt(4,iTrue);
+
+        iTrue = (fgsv.isBlank())? 1:0;
+        stmtSelectByPlant.setString(5,type);
+        stmtSelectByPlant.setInt(6,iTrue);
+
+        ResultSet rs = stmtSelectByPlant.executeQuery();
+        while (rs.next()){
             Plant plant = new Plant(
                     rs.getInt("plant_id"),
                     rs.getString("type"),
@@ -65,27 +77,5 @@ public class PlantDAO implements Queries {
             planten.add(plant);
         }
         return planten;
-    }
-
-    /**
-     * @param type -> type van de plant
-     * @param naam -> familie + geslacht + soort + variant
-     * @return -> geeft een SQL querry terug die zoekt op alle plant kenmerken
-     */
-    public String getPlantSearchQuery(String type, String naam) {
-        int counter = 0;
-        String query = "SELECT * FROM plant WHERE";
-        if (type != null && !type.equals("")) {
-            query += " type LIKE " + type + "";
-            counter++;
-        }
-        if (naam != null && !naam.equals("")) {
-            if (counter > 0) {
-                query += " AND";
-            }
-            query += " fgsv LIKE %" + naam + "%";
-        }
-        System.out.println(query);
-        return query;
     }
 }

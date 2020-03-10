@@ -47,4 +47,6 @@ public class BeheerDAO implements Queries {
         }
         return abioMulti;
     }
+
+    //TODO getByKenmerken toevoegen
 }

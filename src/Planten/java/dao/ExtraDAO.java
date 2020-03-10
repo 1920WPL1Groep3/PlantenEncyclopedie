@@ -6,14 +6,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
-public class ExtraDAO implements Queries{
+public class ExtraDAO implements Queries {
     private Connection dbConnection;
     private PreparedStatement stmtSelectExtraByID;
+    private PreparedStatement stmtSelectByExtra;
 
     public ExtraDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
         stmtSelectExtraByID = dbConnection.prepareStatement(GETEXTRABYPLANTID);
+        stmtSelectByExtra = dbConnection.prepareStatement(GETEXTRASBYEXTRA);
     }
 
     //TODO te testen
@@ -36,5 +39,62 @@ public class ExtraDAO implements Queries{
             );
         }
         return extra;
+    }
+
+    //TODO te testen
+
+    /**
+     * @param sPlant_ids een Lijst omgezet naar een string van alle plant_ids die voldoen aan vorige filters
+     * @return Geeft een lijst terug van alle planten die voldoen aan de ingegeven kenmerken
+     */
+    public List<Extra> getExtrasByKenmerken(String sPlant_ids, int nectarwaarde, int pollenwaarde, String bijvriendelijk, String eetbaar, String kruidgebruik, String geurend, String vorstgevoelig) throws SQLException {
+        List<Extra> extras = null;
+
+        stmtSelectByExtra.setString(1,sPlant_ids);
+
+        int iTrue = (nectarwaarde == 0) ? 1 : 0;
+        stmtSelectByExtra.setInt(2, nectarwaarde);
+        stmtSelectByExtra.setInt(3, iTrue);
+
+        iTrue = (pollenwaarde == 0) ? 1 : 0;
+        stmtSelectByExtra.setInt(4, pollenwaarde);
+        stmtSelectByExtra.setInt(5, iTrue);
+
+        iTrue = (bijvriendelijk.isBlank()) ? 1 : 0;
+        stmtSelectByExtra.setString(6, bijvriendelijk);
+        stmtSelectByExtra.setInt(7, iTrue);
+
+        iTrue = (eetbaar.isBlank()) ? 1 : 0;
+        stmtSelectByExtra.setString(8, eetbaar);
+        stmtSelectByExtra.setInt(9, iTrue);
+
+        iTrue = (kruidgebruik.isBlank()) ? 1 : 0;
+        stmtSelectByExtra.setString(10, kruidgebruik);
+        stmtSelectByExtra.setInt(11, iTrue);
+
+        iTrue = (geurend.isBlank()) ? 1 : 0;
+        stmtSelectByExtra.setString(12, geurend);
+        stmtSelectByExtra.setInt(13, iTrue);
+
+        iTrue = (vorstgevoelig.isBlank()) ? 1 : 0;
+        stmtSelectByExtra.setString(14, vorstgevoelig);
+        stmtSelectByExtra.setInt(15, iTrue);
+
+        ResultSet rs = stmtSelectByExtra.executeQuery();
+        while (rs.next()) {
+            Extra extra = new Extra(
+                    rs.getInt("extra_id"),
+                    rs.getInt("plant_id"),
+                    rs.getInt("nectarwaarde"),
+                    rs.getInt("pollenwaarde"),
+                    rs.getString("bijvriendelijk"),
+                    rs.getString("eetbaar_kruidgebruik"),
+                    rs.getString("eetbaar_kruidgebruik"),
+                    rs.getString("geurend"),
+                    rs.getString("vorstgevoelig")
+            );
+            extras.add(extra);
+        }
+        return extras;
     }
 }

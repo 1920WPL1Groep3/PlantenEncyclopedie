@@ -71,4 +71,6 @@ public class FenotypeDAO implements Queries{
         }
         return commMulti;
     }
+
+    //TODO getByKenmerken toevoegen
 }

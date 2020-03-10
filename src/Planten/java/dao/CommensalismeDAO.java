@@ -54,4 +54,6 @@ public class CommensalismeDAO implements Queries {
         }
         return commMulti;
     }
+
+    //TODO getByKenmerken toevoegen
 }

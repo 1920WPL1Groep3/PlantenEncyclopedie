@@ -57,4 +57,6 @@ public class AbiotischeFactorenDAO implements Queries {
         }
         return abioMulti;
     }
+
+    //TODO getByKenmerken toevoegen
 }
