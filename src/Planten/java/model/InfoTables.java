@@ -1,46 +1,50 @@
 package Planten.java.model;
 
-import javafx.collections.ObservableList;
-
 import java.sql.Blob;
+import java.util.ArrayList;
 
-/**@author Siebe*/
+/**
+ * @author Siebe
+ */
 public class InfoTables {
     //Plant
-    private ObservableList<String> types;
-    private ObservableList<String> families;
+    private ArrayList<String> types;
+    private ArrayList<String> families;
 
     //Fenotype
-    private ObservableList<String> kleuren;
-    private ObservableList<String> bladgroottes;
-    private ObservableList<String> bladvormen;
-    private ObservableList<String> bloeiBladRatios;
-    private ObservableList<String> spruitfenologieen;
-    private ObservableList<String> bloeiwijzes;
-    private ObservableList<Blob> bloeiwijzesFotos;
-    private ObservableList<String> habitusMogelijkheden;
-    private ObservableList<Blob> habitusFotos;
-    private ObservableList<String> levensvormen;
+    private ArrayList<String> kleuren;
+    private ArrayList<String> bladgroottes;
+    private ArrayList<String> bladvormen;
+    private ArrayList<String> bloeiBladRatios;
+    private ArrayList<String> spruitfenologieen;
+    private ArrayList<String> bloeiwijzes;
+    private ArrayList<Blob> bloeiwijzesFotos;
+    private ArrayList<String> habitusMogelijkheden;
+    private ArrayList<Blob> habitusFotos;
+    private ArrayList<String> levensvormen;
 
     //Abiotische factoren
-    private ObservableList<String> bezonningsMogelijkheden;
-    private ObservableList<String> grondsoorten;
-    private ObservableList<String> vochtbehoeftes;
-    private ObservableList<String> voedingsbehoeftes;
-    private ObservableList<String> antagonistischeOmgevingsReacties;
-    private ObservableList<String> habitats;
+    private ArrayList<String> bezonningsMogelijkheden;
+    private ArrayList<String> grondsoorten;
+    private ArrayList<String> vochtbehoeftes;
+    private ArrayList<String> voedingsbehoeftes;
+    private ArrayList<String> antagonistischeOmgevingsReacties;
+    private ArrayList<String> habitats;
 
     //Commensalisme
-    private ObservableList<String> onstwikkelingssnelheden;
-    private ObservableList<String> concurentiekrachten;
-    private ObservableList<Integer> sociabiliteiten;
-    private ObservableList<String> stratergieen;
+    private ArrayList<String> onstwikkelingssnelheden;
+    private ArrayList<String> concurentiekrachten;
+    private ArrayList<Integer> sociabiliteiten;
+    private ArrayList<String> stratergieen;
+
+    //Beheer
+    private ArrayList<String> beheerdaden;
 
     //Extra
-    private ObservableList<Integer> nectarwaardes;
-    private ObservableList<Integer> pollenwaardes;
+    private ArrayList<Integer> nectarwaardes;
+    private ArrayList<Integer> pollenwaardes;
 
-    public InfoTables(ObservableList<String> types, ObservableList<String> families, ObservableList<String> kleuren, ObservableList<String> bladgroottes, ObservableList<String> bladvormen, ObservableList<String> bloeiBladRatios, ObservableList<String> spruitfenologieen, ObservableList<String> bloeiwijzes, ObservableList<Blob> bloeiwijzesFotos, ObservableList<String> habitusMogelijkheden, ObservableList<Blob> habitusFotos, ObservableList<String> levensvormen, ObservableList<String> bezonningsMogelijkheden, ObservableList<String> grondsoorten, ObservableList<String> vochtbehoeftes, ObservableList<String> voedingsbehoeftes, ObservableList<String> antagonistischeOmgevingsReacties, ObservableList<String> habitats, ObservableList<String> onstwikkelingssnelheden, ObservableList<String> concurentiekrachten, ObservableList<Integer> sociabiliteiten, ObservableList<String> stratergieen, ObservableList<Integer> nectarwaardes, ObservableList<Integer> pollenwaardes) {
+    public InfoTables(ArrayList<String> types, ArrayList<String> families, ArrayList<String> kleuren, ArrayList<String> bladgroottes, ArrayList<String> bladvormen, ArrayList<String> bloeiBladRatios, ArrayList<String> spruitfenologieen, ArrayList<String> bloeiwijzes, /*ArrayList<Blob> bloeiwijzesFotos,*/ ArrayList<String> habitusMogelijkheden, ArrayList<Blob> habitusFotos, /*ArrayList<String> levensvormen,*/ ArrayList<String> bezonningsMogelijkheden, ArrayList<String> grondsoorten, ArrayList<String> vochtbehoeftes, ArrayList<String> voedingsbehoeftes, ArrayList<String> antagonistischeOmgevingsReacties, ArrayList<String> habitats, ArrayList<String> onstwikkelingssnelheden, ArrayList<String> concurentiekrachten, ArrayList<Integer> sociabiliteiten, ArrayList<String> stratergieen,ArrayList<String> beheerdaden, ArrayList<Integer> nectarwaardes, ArrayList<Integer> pollenwaardes) {
         this.types = types;
         this.families = families;
         this.kleuren = kleuren;
@@ -49,10 +53,10 @@ public class InfoTables {
         this.bloeiBladRatios = bloeiBladRatios;
         this.spruitfenologieen = spruitfenologieen;
         this.bloeiwijzes = bloeiwijzes;
-        this.bloeiwijzesFotos = bloeiwijzesFotos;
+        //this.bloeiwijzesFotos = bloeiwijzesFotos;
         this.habitusMogelijkheden = habitusMogelijkheden;
         this.habitusFotos = habitusFotos;
-        this.levensvormen = levensvormen;
+        //this.levensvormen = levensvormen;
         this.bezonningsMogelijkheden = bezonningsMogelijkheden;
         this.grondsoorten = grondsoorten;
         this.vochtbehoeftes = vochtbehoeftes;
@@ -63,103 +67,104 @@ public class InfoTables {
         this.concurentiekrachten = concurentiekrachten;
         this.sociabiliteiten = sociabiliteiten;
         this.stratergieen = stratergieen;
+        this.beheerdaden = beheerdaden;
         this.nectarwaardes = nectarwaardes;
         this.pollenwaardes = pollenwaardes;
     }
 
-    public ObservableList<String> getTypes() {
+    public ArrayList<String> getTypes() {
         return types;
     }
 
-    public ObservableList<String> getFamilies() {
+    public ArrayList<String> getFamilies() {
         return families;
     }
 
-    public ObservableList<String> getKleuren() {
+    public ArrayList<String> getKleuren() {
         return kleuren;
     }
 
-    public ObservableList<String> getBladgroottes() {
+    public ArrayList<String> getBladgroottes() {
         return bladgroottes;
     }
 
-    public ObservableList<String> getBladvormen() {
+    public ArrayList<String> getBladvormen() {
         return bladvormen;
     }
 
-    public ObservableList<String> getBloeiBladRatios() {
+    public ArrayList<String> getBloeiBladRatios() {
         return bloeiBladRatios;
     }
 
-    public ObservableList<String> getSpruitfenologieen() {
+    public ArrayList<String> getSpruitfenologieen() {
         return spruitfenologieen;
     }
 
-    public ObservableList<String> getBloeiwijzes() {
+    public ArrayList<String> getBloeiwijzes() {
         return bloeiwijzes;
     }
 
-    public ObservableList<Blob> getBloeiwijzesFotos() {
+    public ArrayList<Blob> getBloeiwijzesFotos() {
         return bloeiwijzesFotos;
     }
 
-    public ObservableList<String> getHabitusMogelijkheden() {
+    public ArrayList<String> getHabitusMogelijkheden() {
         return habitusMogelijkheden;
     }
 
-    public ObservableList<Blob> getHabitusFotos() {
+    public ArrayList<Blob> getHabitusFotos() {
         return habitusFotos;
     }
 
-    public ObservableList<String> getLevensvormen() {
+    public ArrayList<String> getLevensvormen() {
         return levensvormen;
     }
 
-    public ObservableList<String> getBezonningsMogelijkheden() {
+    public ArrayList<String> getBezonningsMogelijkheden() {
         return bezonningsMogelijkheden;
     }
 
-    public ObservableList<String> getGrondsoorten() {
+    public ArrayList<String> getGrondsoorten() {
         return grondsoorten;
     }
 
-    public ObservableList<String> getVochtbehoeftes() {
+    public ArrayList<String> getVochtbehoeftes() {
         return vochtbehoeftes;
     }
 
-    public ObservableList<String> getVoedingsbehoeftes() {
+    public ArrayList<String> getVoedingsbehoeftes() {
         return voedingsbehoeftes;
     }
 
-    public ObservableList<String> getAntagonistischeOmgevingsReacties() {
+    public ArrayList<String> getAntagonistischeOmgevingsReacties() {
         return antagonistischeOmgevingsReacties;
     }
 
-    public ObservableList<String> getHabitats() {
+    public ArrayList<String> getHabitats() {
         return habitats;
     }
 
-    public ObservableList<String> getOnstwikkelingssnelheden() {
+    public ArrayList<String> getOnstwikkelingssnelheden() {
         return onstwikkelingssnelheden;
     }
 
-    public ObservableList<String> getConcurentiekrachten() {
+    public ArrayList<String> getConcurentiekrachten() {
         return concurentiekrachten;
     }
 
-    public ObservableList<Integer> getSociabiliteiten() {
+    public ArrayList<Integer> getSociabiliteiten() {
         return sociabiliteiten;
     }
 
-    public ObservableList<String> getStratergieen() {
+    public ArrayList<String> getStratergieen() {
         return stratergieen;
     }
 
-    public ObservableList<Integer> getNectarwaardes() {
+    public ArrayList<Integer> getNectarwaardes() {
         return nectarwaardes;
     }
 
-    public ObservableList<Integer> getPollenwaardes() {
+    public ArrayList<Integer> getPollenwaardes() {
         return pollenwaardes;
     }
 }

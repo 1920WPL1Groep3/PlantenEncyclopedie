@@ -41,7 +41,7 @@ public class BeheerDAO implements Queries {
      * @return -> alle beheerdaden van de specifieke plant
      */
     private ArrayList<Beheerdaad_Eigenschap> getBeheerdaden(int id) throws SQLException {
-        ArrayList<Beheerdaad_Eigenschap> abioMulti = null;
+        ArrayList<Beheerdaad_Eigenschap> abioMulti = new ArrayList<>();;
 
         stmtSelectBeheerByID.setInt(1, id);
         ResultSet rs = stmtSelectBeheerByID.executeQuery();

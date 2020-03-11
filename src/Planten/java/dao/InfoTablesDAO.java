@@ -4,9 +4,6 @@ import Planten.java.model.InfoTables;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**@author Siebe*/
 public class InfoTablesDAO implements Queries{
@@ -20,74 +17,75 @@ public class InfoTablesDAO implements Queries{
      * @param Query
      * @return
      */
-    public List<String> getInfoTableString(String Query,String eigenschapnaam) throws SQLException{
-        List<String> Strings = new ArrayList<String>();
+    public ArrayList<String> getInfoTableString(String Query, String eigenschapnaam) throws SQLException{
+        ArrayList<String> strings = new ArrayList<>();;
 
             Statement stmt = dbConnection.createStatement();
             ResultSet rs = stmt.executeQuery(Query);
             while (rs.next()) {
-                Strings.add(rs.getString(eigenschapnaam));
+                strings.add(rs.getString(eigenschapnaam));
             }
-        return Strings;
+        return strings;
     }
 
     /**
      * @param Query
      * @return
      */
-    public List<Integer> getInfoTableInt(String Query,String eigenschapnaam) throws SQLException {
-        List<Integer> Strings = new ArrayList<Integer>();
+    public ArrayList<Integer> getInfoTableInt(String Query, String eigenschapnaam) throws SQLException {
+        ArrayList<Integer> ints = new ArrayList<>();;
 
         Statement stmt = dbConnection.createStatement();
         ResultSet rs = stmt.executeQuery(Query);
         while (rs.next()) {
-            Strings.add(rs.getInt(eigenschapnaam));
+            ints.add(rs.getInt(eigenschapnaam));
         }
-        return Strings;
+        return ints;
     }
 
     /**
      * @param Query
      * @return
      */
-    public List<Blob> getInfoTableBlob(String Query,String eigenschapnaam) throws SQLException {
-        List<Blob> Strings = new ArrayList<Blob>();
+    public ArrayList<Blob> getInfoTableBlob(String Query,String eigenschapnaam) throws SQLException {
+        ArrayList<Blob> blobs = new ArrayList<>();
 
         Statement stmt = dbConnection.createStatement();
         ResultSet rs = stmt.executeQuery(Query);
         while (rs.next()) {
-            Strings.add(rs.getBlob(eigenschapnaam));
+            blobs.add(rs.getBlob(eigenschapnaam));
         }
-        return Strings;
+        return blobs;
     }
 
     // functie om de String Query in te vullen bij 'getInfoTable'
   public InfoTables getInfoTables() throws SQLException{
         InfoTables infoTables = new InfoTables(
-                getInfoTableString(GETTYPEBYPLANTID, "type_naam"),
-                getInfoTableString(GETFAMILIEBYPLANTID, "familie_naam"),
-                getInfoTableString(GETKLEURENBYKLEUREN, "kleur"),
-                getInfoTableInt(GETBLADGROOTTE, "waarde"),
-                getInfoTableString(GETBLADVORMBYBLADVORM, "waarde"),
-                getInfoTableString(GETRATIOBYRATIOBLOEIBLAD, "waarde"),
-                getInfoTableString(GETSPRUITBYSPRUITFENOLOGIE, "waarde"),
-                getInfoTableString(GETBLOEIWIJZEBYBLOEIWIJZE, "waarde"),
-                getInfoTableBlob(GETFOTOBlOEIWIJZE, "afbeelding"),
-                getInfoTableString(GETHABITUSBYHABITUS, "waarde"),
-                getInfoTableBlob(GETFOTOHABITUS, "afbeelding"),
-                getInfoTableString(GETLEVENSVORM, "waarde"),
-                getInfoTableString(GETBEZONNINGBYBEZONNING, "waarde"),
-                getInfoTableString(GETGRONDSOORTBYGRONDSOORT, "waarde"),
-                getInfoTableString(GETVOCHTBYVOCHTBEHOEFTE, "waarde"),
-                getInfoTableString(GETVOEDINGBYVOEDINGSBEHOEFTE, "waarde"),
-                getInfoTableString(GETREACTIEBYREACTIEOMGEVING, "waarde"),
-                getInfoTableString(GETHABITATBYHABITAT, "waarde"),
-                getInfoTableString(GETONTWIKKELBYONTWIKKELSNELHEID, "waarde"),
-                getInfoTableString(GETLEVENSDUURBYLEVENSDUUR, "waarde"),
-                getInfoTableInt(GETSOCIABILITEITBYSOCIABILITEIT, "waarde"),
-                getInfoTableString(GETSTRATEGIEBYSTRATEGIE, "waarde"),
-                getInfoTableInt(GETNECTARBYNECTARWAARDE, "waarde"),
-                getInfoTableInt(GETPOLLENBYPOLLENWAARDE, "waarde")
+                getInfoTableString(NTTYPE, "type_naam"),
+                getInfoTableString(NTFAMILIE, "familie_naam"),
+                getInfoTableString(NTKLEUREN, "kleur"),
+                getInfoTableString(NTBLADGROOTTE, "waarde"),
+                getInfoTableString(NTBLADVORM, "waarde"),
+                getInfoTableString(NTRATIOBLOEIBLAD, "waarde"),
+                getInfoTableString(NTSPRUITFENOLOGIE, "waarde"),
+                getInfoTableString(NTBLOEIWIJZE, "waarde"),
+                //getInfoTableBlob(GETFOTOBlOEIWIJZE, "afbeelding"),
+                getInfoTableString(NTHABITUS, "waarde"),
+                getInfoTableBlob(NTFOTOHABITUS, "afbeelding"),
+                //getInfoTableString(GETLEVENSVORM, "waarde"),
+                getInfoTableString(NTBEZONNING, "waarde"),
+                getInfoTableString(NTGRONDSOORT, "waarde"),
+                getInfoTableString(NTVOCHTBEHOEFTE, "waarde"),
+                getInfoTableString(NTVOEDINGSBEHOEFTE, "waarde"),
+                getInfoTableString(NTREACTIEOMGEVING, "waarde"),
+                getInfoTableString(NTHABITAT, "waarde"),
+                getInfoTableString(NTONTWIKKELINGSSNELHEID, "waarde"),
+                getInfoTableString(NTLEVENSDUURCONCURRENTIEKRACHT, "waarde"),
+                getInfoTableInt(NTSOCIABILITEIT, "waarde"),
+                getInfoTableString(NTSTRATEGIE, "waarde"),
+                getInfoTableString(NTBEHEERDAAD,"waarde"),
+                getInfoTableInt(NTNECTARWAARDE, "waarde"),
+                getInfoTableInt(NTPOLLENWAARDE, "waarde")
         );
         return null;
     }

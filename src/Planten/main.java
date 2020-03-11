@@ -1,5 +1,6 @@
 package Planten;
 
+import Planten.java.dao.Database;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,11 +12,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.sql.Connection;
+
+
 public class main extends Application {
+
     private double xOffset = 0;
     private double yOffset = 0;
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         Parent root = FXMLLoader.load(getClass().getResource("view/Zoekscherm.fxml"));
         primaryStage.setTitle("PlantenEncyclopedie");
 

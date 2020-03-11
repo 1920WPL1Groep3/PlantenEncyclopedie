@@ -3,7 +3,7 @@ package Planten.java.dao;
 import java.sql.Blob;
 
 public interface Queries {
-    /* QUERIES om alle gegevens uit een tabel te halen per plant ID */
+    //region GETBYID
     String GETPLANTBYID = "SELECT * FROM plant WHERE plant_id = ?";
 
     String GETFENOTYPEBYPLANTID = "SELECT * FROM fenotype WHERE plant_id = ?";
@@ -20,11 +20,9 @@ public interface Queries {
     String GETEXTRABYPLANTID = "SELECT * FROM extra WHERE plant_id = ?";
 
     String GETFOTOBYPLANTID = "SELECT * FROM foto WHERE plant_id = ?";
+    //endregion
 
-    //TODO omzetten naar queries -> makkelijker onderhoud en anti-hardcoding
-    String GETINFOTABLE = "SELECT ? FROM ?";
-
-
+    //region GETIDBYKENMERKEN
     String GETIDSBYPLANT =
             "SELECT plant_id FROM plant WHERE " +
                     "type = ? OR  1=? " +
@@ -149,83 +147,84 @@ public interface Queries {
                     "maand = ? OR 1=?" +
                     "AND " +
                     "frequentie_jaar = ? OR 1=?";
+//endregion
 
-    String GETTYPEBYPLANTID =
-            "SELECT type_naam FROM type WHERE type_id = type_id FROM plant";
+    //region NAAKTETABELLEN
 
-    String GETFAMILIEBYPLANTID =
-            "SELECT familie_naam FROM familie WHERE familie_id = familie_id FROM plant";
+    String NTTYPE =
+            "SELECT type_naam FROM type";
 
-    /* QUERIES om de STRING gegevens uit de naakte tabellen te halen
-    * om velden te kunnen in/aanvullen */
+    String NTFAMILIE =
+            "SELECT familie_naam FROM familie";
 
-    String GETLEVENSDUURBYLEVENSDUUR =
+    String NTLEVENSDUURCONCURRENTIEKRACHT =
             "SELECT waarde FROM levensduur_concurrentiekracht";
 
-    String GETSTRATEGIEBYSTRATEGIE =
+    String NTSTRATEGIE =
             "SELECT waarde FROM strategie";
 
-    String GETONTWIKKELBYONTWIKKELSNELHEID =
+    String NTONTWIKKELINGSSNELHEID =
             "SELECT waarde FROM ontwikkelingssnelheid";
 
-    String GETVOEDINGBYVOEDINGSBEHOEFTE =
+    String NTVOEDINGSBEHOEFTE =
             "SELECT waarde FROM voedingsbehoefte";
 
-    String GETVOCHTBYVOCHTBEHOEFTE =
+    String NTVOCHTBEHOEFTE =
             "SELECT waarde FROM vochtbehoefte";
 
-    String GETHABITATBYHABITAT =
-            "SELECT waarde FROM habitat" +
-            "SELECT afkorting FROM habitat";
+    String NTHABITAT =
+            "SELECT waarde FROM habitat";
 
-    String GETREACTIEBYREACTIEOMGEVING =
+    String NTREACTIEOMGEVING =
             "SELECT waarde FROM reactieomgeving";
 
-    String GETGRONDSOORTBYGRONDSOORT =
+    String NTGRONDSOORT =
             "SELECT waarde FROM grondsoort";
 
-    String GETBEZONNINGBYBEZONNING =
+    String NTBEZONNING =
             "SELECT waarde FROM bezonning";
 
-    String GETHABITUSBYHABITUS =
+    String NTHABITUS =
             "SELECT waarde FROM habitus";
 
-    String GETKLEURENBYKLEUREN =
+    String NTKLEUREN =
             "SELECT kleur FROM kleuren";
 
-    String GETBLADVORMBYBLADVORM =
+    String NTBLADVORM =
             "SELECT waarde FROM bladvorm";
 
-    String GETRATIOBYRATIOBLOEIBLAD =
+    String NTRATIOBLOEIBLAD =
             "SELECT waarde FROM ratio_bloeiblad";
 
-    String GETSPRUITBYSPRUITFENOLOGIE =
+    String NTSPRUITFENOLOGIE =
             "SELECT waarde FROM spruitfenologie";
 
-    String GETBLOEIWIJZEBYBLOEIWIJZE =
+    String NTBLOEIWIJZE =
             "SELECT waarde FROM bloeiwijze";
 
-    String GETSOCIABILITEITBYSOCIABILITEIT =
+    String NTSOCIABILITEIT =
             "SELECT waarde FROM sociabiliteit";
 
-    String GETBEHEERDAADBYBEHEERDAAD =
+    String NTBEHEERDAAD =
             "SELECT waarde FROM beheerdaad";
 
-    String GETNECTARBYNECTARWAARDE =
+    String NTNECTARWAARDE =
             "SELECT waarde FROM nectarwaarde";
 
-    String GETPOLLENBYPOLLENWAARDE =
+    String NTPOLLENWAARDE =
             "SELECT waarde FROM pollenwaarde";
 
-    String GETBLADGROOTTE =
+    String NTBLADGROOTTE =
             "SELECT waarde FROM maxbladgrootte";
 
-    String GETLEVENSVORM =
+    String NTLEVENSVORM =
             "SELECT waarde FROM levensvorm";
 
-    String GETFOTOHABITUS =
+    String NTFOTOHABITUS =
             "SELECT afbeelding FROM habitus";
 
-    String GETFOTOBlOEIWIJZE =
+    String NTFOTOBlOEIWIJZE =
             "SELECT afbeelding FROM bloeiwijze";
+    //endregion
 }
+

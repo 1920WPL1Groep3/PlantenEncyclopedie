@@ -58,7 +58,7 @@ public class FenotypeDAO implements Queries{
      * @return -> alle fenotype_multi van de specifieke plant
      */
     private ArrayList<FenoMulti_Eigenschap> getByIdMulti(int id) throws SQLException {
-        ArrayList<FenoMulti_Eigenschap> commMulti = null;
+        ArrayList<FenoMulti_Eigenschap> commMulti = new ArrayList<>();;
 
         stmtSelectFenoMultiByID.setInt(1, id);
         ResultSet rs = stmtSelectFenoMultiByID.executeQuery();
@@ -91,7 +91,7 @@ public class FenotypeDAO implements Queries{
      * @return -> de gefilterde ids
      */
     public ArrayList<Integer> KenmerkenMultiFilter(String sPlant_ids,String eigenschap,String waarde) throws SQLException {
-        ArrayList<Integer> ids = null;
+        ArrayList<Integer> ids = new ArrayList<>();;
         stmtSelectIdsByFenoMulti.setString(1,sPlant_ids);
         stmtSelectIdsByFenoMulti.setString(2,eigenschap);
 
@@ -118,7 +118,7 @@ public class FenotypeDAO implements Queries{
      * @return -> de gefilterde ids
      */
     public ArrayList<Integer> KenmerkenFilter(String sPlant_ids, String bladvorm, String levensvorm, String habitus, String bloeiwijze, int bladgrootte, String ratio_bloei_blad, String spruitfenologie) throws SQLException {
-        ArrayList<Integer> ids = null;
+        ArrayList<Integer> ids = new ArrayList<>();;
 
         stmtSelectIdsByFeno.setString(1, sPlant_ids);
 

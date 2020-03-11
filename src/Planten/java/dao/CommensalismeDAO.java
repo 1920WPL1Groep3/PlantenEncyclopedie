@@ -52,7 +52,7 @@ public class CommensalismeDAO implements Queries {
      * @return -> alle commensalisme_multi van de specifieke plant
      */
     private ArrayList<CommMulti_Eigenschap> getByIdMulti(int id) throws SQLException {
-        ArrayList<CommMulti_Eigenschap> commMulti = null;
+        ArrayList<CommMulti_Eigenschap> commMulti = new ArrayList<>();;
 
         stmtSelectCommeMultiByID.setInt(1, id);
         ResultSet rs = stmtSelectCommeMultiByID.executeQuery();
@@ -74,7 +74,7 @@ public class CommensalismeDAO implements Queries {
      * @return -> de gefilterde ids
      */
     public ArrayList<Integer> KenmerkenMultiFilter(String sPlant_ids,String eigenschap,String waarde) throws SQLException {
-        ArrayList<Integer> ids = null;
+        ArrayList<Integer> ids = new ArrayList<>();;
         stmtSelectIdsByCommMulti.setString(1,sPlant_ids);
         stmtSelectIdsByCommMulti.setString(2,eigenschap);
 
@@ -96,7 +96,7 @@ public class CommensalismeDAO implements Queries {
      * @return -> de gefilterde ids
      */
     public ArrayList<Integer> KenmerkenFilter(String sPlant_ids, String strategie, String ontwikkelingssnelheid) throws SQLException {
-        ArrayList<Integer> ids = null;
+        ArrayList<Integer> ids = new ArrayList<>();;
 
         stmtSelectIdsByComm.setString(1, sPlant_ids);
 

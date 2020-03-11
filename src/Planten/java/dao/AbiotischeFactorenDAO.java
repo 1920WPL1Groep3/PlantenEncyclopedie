@@ -55,7 +55,7 @@ public class AbiotischeFactorenDAO implements Queries {
      * @return -> alle abiotische_multi factoren van de specifieke plant
      */
     private ArrayList<AbioMulti_Eigenschap> getByIdMulti(int id) throws SQLException {
-        ArrayList<AbioMulti_Eigenschap> abioMulti = null;
+        ArrayList<AbioMulti_Eigenschap> abioMulti = new ArrayList<>();;
 
         stmtSelectAbioMultiByID.setInt(1, id);
         ResultSet rs = stmtSelectAbioMultiByID.executeQuery();
@@ -77,7 +77,7 @@ public class AbiotischeFactorenDAO implements Queries {
      * @return -> de gefilterde ids
      */
     public ArrayList<Integer> KenmerkenMultiFilter(String sPlant_ids,String eigenschap,String waarde) throws SQLException {
-        ArrayList<Integer> ids = null;
+        ArrayList<Integer> ids = new ArrayList<>();;
         stmtSelectIdsByAbioMulti.setString(1,sPlant_ids);
         stmtSelectIdsByAbioMulti.setString(2,eigenschap);
 
@@ -102,7 +102,7 @@ public class AbiotischeFactorenDAO implements Queries {
      * @return -> de gefilterde ids
      */
     public ArrayList<Integer> KenmerkenFilter(String sPlant_ids, String bezonning, String grondsoort, String vochtbehoefte, String voedingsbehoefte, String reactieAntagonistischeOmgeving) throws SQLException {
-        ArrayList<Integer> ids = null;
+        ArrayList<Integer> ids = new ArrayList<>();;
 
         stmtSelectIdsByAbio.setString(1, sPlant_ids);
 

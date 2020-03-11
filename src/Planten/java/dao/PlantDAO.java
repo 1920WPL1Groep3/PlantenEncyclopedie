@@ -52,7 +52,7 @@ public class PlantDAO implements Queries {
      * @return -> de gefilterde ids
      */
     public ArrayList<Integer> KenmerkenFilter (String type, String familie, String fgsv) throws SQLException {
-        ArrayList<Integer> ids = null;
+        ArrayList<Integer> ids = new ArrayList<>();;
 
         int iTrue = (type.isBlank())? 1:0;
         stmtSelectByPlant.setString(1,type);
