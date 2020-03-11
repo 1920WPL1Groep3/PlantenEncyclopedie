@@ -24,7 +24,10 @@ public class InfoTablesDAO implements Queries{
             ResultSet rs = stmt.executeQuery(Query);
             while (rs.next()) {
                 strings.add(rs.getString(eigenschapnaam));
+
+
             }
+       // System.out.println(strings.toString());
         return strings;
     }
 
@@ -87,6 +90,6 @@ public class InfoTablesDAO implements Queries{
                 getInfoTableInt(NTNECTARWAARDE, "waarde"),
                 getInfoTableInt(NTPOLLENWAARDE, "waarde")
         );
-        return null;
+        return infoTables;
     }
 }

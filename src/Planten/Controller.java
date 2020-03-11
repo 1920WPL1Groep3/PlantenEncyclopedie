@@ -113,7 +113,9 @@ public class Controller {
         infoTables = infotablesDAO.getInfoTables();
 
         /*comboboxes vullen*/
-        //FillComboboxes(infoTables);
+        FillComboboxes(infoTables);
+
+
     }
     /**
         @param infotables -> lijst van alle lijsten van gegevens uit de naakte tabellen
@@ -122,25 +124,26 @@ public class Controller {
      */
     public void FillComboboxes(InfoTables infotables){
         //type
-        cboType.setItems(FXCollections.observableArrayList(infoTables.getTypes()));
+       // System.out.println(infotables.getTypes().toString());
+        cboType.getItems().addAll(infotables.getTypes());
         //familie
-        cboType.setItems(FXCollections.observableArrayList(infoTables.getFamilies()));
+        cboFamilie.getItems().addAll(infotables.getFamilies());
         //bladgrootte
-        cboBladgrootte.setItems(FXCollections.observableArrayList(infoTables.getBladgroottes()));
+        cboBladgrootte.getItems().addAll(infotables.getBladgroottes());
         //bladvorm
-        cboBladvorm.setItems(FXCollections.observableArrayList(infoTables.getBladvormen()));
+        cboBladvorm.getItems().addAll(infotables.getBladvormen());
         //Levensvorm
 
         //BehandelingMaand
         cboMaand.getItems().addAll("Januari", "februari", "maart", "april", "mei", "juni", "juli","augustus","september", "oktober", "november", "december");
         //ratio
-        cboRatio.setItems(FXCollections.observableArrayList(infoTables.getBloeiBladRatios()));
+        cboRatio.getItems().addAll(infotables.getBloeiBladRatios());
         //spruitfenologie
-        cboSpruitFenologie.setItems(FXCollections.observableArrayList(infoTables.getSpruitfenologieen()));
+        cboSpruitFenologie.getItems().addAll(infotables.getSpruitfenologieen());
         //reactie antagonistische omgeving
-        cboReactie.setItems(FXCollections.observableArrayList(infoTables.getAntagonistischeOmgevingsReacties()));
+        cboReactie.getItems().addAll(infotables.getAntagonistischeOmgevingsReacties());
         //behandeling
-       // cboBehandeling.setItems((ObservableList<String>) infoTables.getB());
+
     }
 
     public void Clicked_Search(MouseEvent mouseEvent) {
