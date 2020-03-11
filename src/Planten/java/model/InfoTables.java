@@ -10,7 +10,7 @@ public class InfoTables {
 
     //Fenotype
     private List<String> kleuren;
-    private List<String> bladgroottes;
+    private List<Integer> bladgroottes;
     private List<String> bladvormen;
     private List<String> bloeiBladRatios;
     private List<String> spruitfenologieen;
@@ -38,7 +38,19 @@ public class InfoTables {
     private List<Integer> nectarwaardes;
     private List<Integer> pollenwaardes;
 
-    public InfoTables(List<String> types, List<String> families, List<String> kleuren, List<String> bladgroottes, List<String> bladvormen, List<String> bloeiBladRatios, List<String> spruitfenologieen, List<String> bloeiwijzes, List<Blob> bloeiwijzesFotos, List<String> habitusMogelijkheden, List<Blob> habitusFotos, List<String> levensvormen, List<String> bezonningsMogelijkheden, List<String> grondsoorten, List<String> vochtbehoeftes, List<String> voedingsbehoeftes, List<String> antagonistischeOmgevingsReacties, List<String> habitats, List<String> onstwikkelingssnelheden, List<String> concurentiekrachten, List<Integer> sociabiliteiten, List<String> stratergieen, List<Integer> nectarwaardes, List<Integer> pollenwaardes) {
+    public InfoTables(List<String> types, List<String> families, List<String> kleuren,
+                      List<Integer> bladgroottes, List<String> bladvormen,
+                      List<String> bloeiBladRatios, List<String> spruitfenologieen,
+                      List<String> bloeiwijzes, List<Blob> bloeiwijzesFotos,
+                      List<String> habitusMogelijkheden, List<Blob> habitusFotos,
+                      List<String> levensvormen, List<String> bezonningsMogelijkheden,
+                      List<String> grondsoorten, List<String> vochtbehoeftes,
+                      List<String> voedingsbehoeftes,
+                      List<String> antagonistischeOmgevingsReacties,
+                      List<String> habitats, List<String> onstwikkelingssnelheden,
+                      List<String> concurentiekrachten, List<Integer> sociabiliteiten,
+                      List<String> stratergieen, List<Integer> nectarwaardes,
+                      List<Integer> pollenwaardes) {
         this.types = types;
         this.families = families;
         this.kleuren = kleuren;
@@ -77,7 +89,7 @@ public class InfoTables {
         return kleuren;
     }
 
-    public List<String> getBladgroottes() {
+    public List<Integer> getBladgroottes() {
         return bladgroottes;
     }
 

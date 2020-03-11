@@ -2,69 +2,92 @@ package Planten.java.dao;
 
 import Planten.java.model.InfoTables;
 
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class InfoTablesDAO implements Queries{
     private Connection dbConnection;
-    private PreparedStatement stmtSelectInfoTable;
 
     public InfoTablesDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
-        stmtSelectInfoTable = dbConnection.prepareStatement(GETINFOTABLE);
     }
 
-    public void getInfoTables(){
+    /**
+     * @param Query
+     * @return
+     */
+    public List<String> getInfoTableString(String Query,String eigenschapnaam) throws SQLException{
+        List<String> Strings = new ArrayList<String>();
+
+            Statement stmt = dbConnection.createStatement();
+            ResultSet rs = stmt.executeQuery(Query);
+            while (rs.next()) {
+                Strings.add(rs.getString(eigenschapnaam));
+            }
+        return Strings;
+    }
+
+    /**
+     * @param Query
+     * @return
+     */
+    public List<Integer> getInfoTableInt(String Query,String eigenschapnaam) throws SQLException {
+        List<Integer> Strings = new ArrayList<Integer>();
+
+        Statement stmt = dbConnection.createStatement();
+        ResultSet rs = stmt.executeQuery(Query);
+        while (rs.next()) {
+            Strings.add(rs.getInt(eigenschapnaam));
+        }
+        return Strings;
+    }
+
+    /**
+     * @param Query
+     * @return
+     */
+    public List<Blob> getInfoTableBlob(String Query,String eigenschapnaam) throws SQLException {
+        List<Blob> Strings = new ArrayList<Blob>();
+
+        Statement stmt = dbConnection.createStatement();
+        ResultSet rs = stmt.executeQuery(Query);
+        while (rs.next()) {
+            Strings.add(rs.getBlob(eigenschapnaam));
+        }
+        return Strings;
+    }
+
+    // functie om de String Query in te vullen bij 'getInfoTable'
+  public InfoTables getInfoTables() throws SQLException{
         InfoTables infoTables = new InfoTables(
-                //TODO omzetten naar queries -> makkelijker onderhoud en anti-hardcoding
-                //Plant
-                getInfoTableString("type_naam","types"),
-                getInfoTableString("familie_naam","familie"),
-
-                //Fenotype
-                getInfoTableString("kleur","kleuren"),
-                getInfoTableString("waarde","maxbladgrootte"),
-                getInfoTableString("waarde","bladvorm"),
-                getInfoTableString("waarde","ratio_bloeiblad"),
-                getInfoTableString("waarde","spruitfenologie"),
-                getInfoTableString("waarde","bloeiwijze"),
-                getInfoTableBlob("afbeelding","bloeiwijze"),
-                getInfoTableString("waarde","habitus"),
-                getInfoTableBlob("afbeelding","habitus"),
-                getInfoTableString("waarde","levensvorm"),
-
-                //Abiotische factoren
-                getInfoTableString("waarde","bezonning"),
-                getInfoTableString("waarde","grondsoort"),
-                getInfoTableString("waarde","vochtbehoefte"),
-                getInfoTableString("waarde","voedingsbehoefte"),
-                getInfoTableString("waarde","reactieomgeving"),
-                getInfoTableString("waarde","habitat"),
-
-                //Commensalisme
-                getInfoTableString("waarde","ontwikkelingssnelheid"),
-                getInfoTableString("waarde","levensduur_concurrentiekracht"),
-                getInfoTableInt("waarde","sociabiliteit"),
-                getInfoTableString("waarde","stratergie"),
-
-                //Extra
-                getInfoTableInt("waarde","nectarwaarde"),
-                getInfoTableInt("waarde","pollenwaarde")
+                getInfoTableString(GETTYPEBYPLANTID, "type_naam"),
+                getInfoTableString(GETFAMILIEBYPLANTID, "familie_naam"),
+                getInfoTableString(GETKLEURENBYKLEUREN, "kleur"),
+                getInfoTableInt(GETBLADGROOTTE, "waarde"),
+                getInfoTableString(GETBLADVORMBYBLADVORM, "waarde"),
+                getInfoTableString(GETRATIOBYRATIOBLOEIBLAD, "waarde"),
+                getInfoTableString(GETSPRUITBYSPRUITFENOLOGIE, "waarde"),
+                getInfoTableString(GETBLOEIWIJZEBYBLOEIWIJZE, "waarde"),
+                getInfoTableBlob(GETFOTOBlOEIWIJZE, "afbeelding"),
+                getInfoTableString(GETHABITUSBYHABITUS, "waarde"),
+                getInfoTableBlob(GETFOTOHABITUS, "afbeelding"),
+                getInfoTableString(GETLEVENSVORM, "waarde"),
+                getInfoTableString(GETBEZONNINGBYBEZONNING, "waarde"),
+                getInfoTableString(GETGRONDSOORTBYGRONDSOORT, "waarde"),
+                getInfoTableString(GETVOCHTBYVOCHTBEHOEFTE, "waarde"),
+                getInfoTableString(GETVOEDINGBYVOEDINGSBEHOEFTE, "waarde"),
+                getInfoTableString(GETREACTIEBYREACTIEOMGEVING, "waarde"),
+                getInfoTableString(GETHABITATBYHABITAT, "waarde"),
+                getInfoTableString(GETONTWIKKELBYONTWIKKELSNELHEID, "waarde"),
+                getInfoTableString(GETLEVENSDUURBYLEVENSDUUR, "waarde"),
+                getInfoTableInt(GETSOCIABILITEITBYSOCIABILITEIT, "waarde"),
+                getInfoTableString(GETSTRATEGIEBYSTRATEGIE, "waarde"),
+                getInfoTableInt(GETNECTARBYNECTARWAARDE, "waarde"),
+                getInfoTableInt(GETPOLLENBYPOLLENWAARDE, "waarde")
         );
-    }
-
-    private List<Blob> getInfoTableBlob(String colomn, String table) {
-        return null;
-    }
-
-    private List<Integer> getInfoTableInt(String colomn, String table) {
-        return null;
-    }
-
-    private List<String> getInfoTableString(String colomn, String table) {
         return null;
     }
 }
