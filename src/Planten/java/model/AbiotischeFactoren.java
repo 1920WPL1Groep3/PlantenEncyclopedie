@@ -1,9 +1,8 @@
 package Planten.java.model;
 
-import Planten.java.AbioMulti_Eigenschap;
+import java.util.ArrayList;
 
-import java.util.List;
-
+/**@author Siebe*/
 public class AbiotischeFactoren {
     private int id;
     private int plant_id;
@@ -12,9 +11,9 @@ public class AbiotischeFactoren {
     private String vochtbehoefte;
     private String voedingsbehoefte;
     private String reactieAntagonistischeOmgeving;
-    private List<AbioMulti_Eigenschap> multiEigenschappen;
+    private ArrayList<AbioMulti_Eigenschap> multiEigenschappen;
 
-    public AbiotischeFactoren(int id, int plant_id, String bezonning, String grondsoort, String vochtbehoefte, String voedingsbehoefte, String reactieAntagonistischeOmgeving, List<AbioMulti_Eigenschap> multiEigenschappen) {
+    public AbiotischeFactoren(int id, int plant_id, String bezonning, String grondsoort, String vochtbehoefte, String voedingsbehoefte, String reactieAntagonistischeOmgeving, ArrayList<AbioMulti_Eigenschap> multiEigenschappen) {
         this.id = id;
         this.plant_id = plant_id;
         this.bezonning = bezonning;
@@ -53,7 +52,7 @@ public class AbiotischeFactoren {
         return reactieAntagonistischeOmgeving;
     }
 
-    public List<AbioMulti_Eigenschap> getMultiEigenschappen() {
+    public ArrayList<AbioMulti_Eigenschap> getMultiEigenschappen() {
         return multiEigenschappen;
     }
 }

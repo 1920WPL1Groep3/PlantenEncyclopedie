@@ -6,8 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
+/**@author Siebe*/
 public class PlantDAO implements Queries {
 
     private Connection dbConnection;
@@ -17,10 +18,13 @@ public class PlantDAO implements Queries {
     public PlantDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
         stmtSelectById = dbConnection.prepareStatement(GETPLANTBYID);
-        stmtSelectByPlant = dbConnection.prepareStatement(GETPLANTSBYPLANT);
+        stmtSelectByPlant = dbConnection.prepareStatement(GETIDSBYPLANT);
     }
 
-    //TODO te testen
+    /**@author Siebe
+     * @param id -> plant_id
+     * @return -> alle basis factoren van de specifieke plant
+     */
     public Plant getPlantById(int id) throws SQLException {
         Plant plant = null;
 
@@ -41,14 +45,14 @@ public class PlantDAO implements Queries {
         return plant;
     }
 
-    //TODO te testen
-
-    /**
+    /**@author Siebe
+     * @param type -> waarde type van de plant
+     * @param familie -> familie van de plant
      * @param fgsv -> familie, geslacht, soort, variant
-     * @return Geeft een lijst terug van alle planten die voldoen aan de ingegeven kenmerken
+     * @return -> de gefilterde ids
      */
-    public List<Plant> getPlantsByKenmerken (String type, String familie, String fgsv) throws SQLException {
-        List<Plant> planten = null;
+    public ArrayList<Integer> KenmerkenFilter (String type, String familie, String fgsv) throws SQLException {
+        ArrayList<Integer> ids = null;
 
         int iTrue = (type.isBlank())? 1:0;
         stmtSelectByPlant.setString(1,type);
@@ -64,18 +68,8 @@ public class PlantDAO implements Queries {
 
         ResultSet rs = stmtSelectByPlant.executeQuery();
         while (rs.next()){
-            Plant plant = new Plant(
-                    rs.getInt("plant_id"),
-                    rs.getString("type"),
-                    rs.getString("familie"),
-                    rs.getString("geslacht"),
-                    rs.getString("soort"),
-                    rs.getString("variatie"),
-                    rs.getInt("plantdichtheid_min"),
-                    rs.getInt("plantdichtheid_max")
-            );
-            planten.add(plant);
+            ids.add(rs.getInt("plant_id"));
         }
-        return planten;
+        return ids;
     }
 }

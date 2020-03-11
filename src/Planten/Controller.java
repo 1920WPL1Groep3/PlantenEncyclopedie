@@ -1,7 +1,6 @@
 package Planten;
 
 import Planten.java.dao.Database;
-import Planten.java.dao.FenotypeDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,7 +37,6 @@ public class Controller {
     public Button btnminimize;
     public Button btnExit;
     public Button btnMaximize;
-    public CheckComboBox ccbBladKleur;
     boolean maximized=false;
 
 

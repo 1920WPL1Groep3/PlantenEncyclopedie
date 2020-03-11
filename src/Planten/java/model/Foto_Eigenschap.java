@@ -1,9 +1,10 @@
-package Planten.java;
+package Planten.java.model;
 
 import javafx.scene.image.Image;
 
 import java.sql.Blob;
 
+/**@author Siebe*/
 public class Foto_Eigenschap {
     private int id;
     private String eigenschap;

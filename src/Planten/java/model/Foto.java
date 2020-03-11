@@ -1,15 +1,13 @@
 package Planten.java.model;
 
-import Planten.java.Foto_Eigenschap;
+import java.util.ArrayList;
 
-import java.util.List;
-
-
+/**@author Siebe*/
 public class Foto {
     private int plant_id;
-    private List<Foto_Eigenschap> fotos;
+    private ArrayList<Foto_Eigenschap> fotos;
 
-    public Foto(int plant_id, List<Foto_Eigenschap> fotos) {
+    public Foto(int plant_id, ArrayList<Foto_Eigenschap> fotos) {
         this.plant_id = plant_id;
         this.fotos = fotos;
     }
@@ -18,7 +16,7 @@ public class Foto {
         return plant_id;
     }
 
-    public List<Foto_Eigenschap> getFotos() {
+    public ArrayList<Foto_Eigenschap> getFotos() {
         return fotos;
     }
 

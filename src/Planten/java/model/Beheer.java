@@ -1,14 +1,13 @@
 package Planten.java.model;
 
-import Planten.java.Beheerdaad_Eigenschap;
+import java.util.ArrayList;
 
-import java.util.List;
-
+/**@author Siebe*/
 public class Beheer {
     private int plant_id;
-    private List<Beheerdaad_Eigenschap> multiEigenschappen;
+    private ArrayList<Beheerdaad_Eigenschap> multiEigenschappen;
 
-    public Beheer(int plant_id, List<Beheerdaad_Eigenschap> multiEigenschappen) {
+    public Beheer(int plant_id, ArrayList<Beheerdaad_Eigenschap> multiEigenschappen) {
         this.plant_id = plant_id;
         this.multiEigenschappen = multiEigenschappen;
     }
@@ -17,7 +16,7 @@ public class Beheer {
         return plant_id;
     }
 
-    public List<Beheerdaad_Eigenschap> getMultiEigenschappen() {
+    public ArrayList<Beheerdaad_Eigenschap> getMultiEigenschappen() {
         return multiEigenschappen;
     }
 }

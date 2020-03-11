@@ -1,5 +1,6 @@
-package Planten.java;
+package Planten.java.model;
 
+/**@author Siebe*/
 public class CommMulti_Eigenschap {
     private int id;
     private String naam;

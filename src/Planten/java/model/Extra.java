@@ -1,5 +1,6 @@
 package Planten.java.model;
 
+/**@author Siebe*/
 public class Extra {
     private int id;
     private int plant_id;

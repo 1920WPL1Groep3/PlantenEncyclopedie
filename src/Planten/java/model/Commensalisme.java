@@ -1,17 +1,16 @@
 package Planten.java.model;
 
-import Planten.java.CommMulti_Eigenschap;
+import java.util.ArrayList;
 
-import java.util.List;
-
+/**@author Siebe*/
 public class Commensalisme {
     private int id;
     private int plant_id;
     private String strategie;
     private String ontwikkelingssnelheid;
-    private List<CommMulti_Eigenschap> multiEigenschappen;
+    private ArrayList<CommMulti_Eigenschap> multiEigenschappen;
 
-    public Commensalisme(int id, int plant_id, String strategie, String ontwikkelingssnelheid, List<CommMulti_Eigenschap> multiEigenschappen) {
+    public Commensalisme(int id, int plant_id, String strategie, String ontwikkelingssnelheid, ArrayList<CommMulti_Eigenschap> multiEigenschappen) {
         this.id = id;
         this.plant_id = plant_id;
         this.strategie = strategie;
@@ -35,7 +34,7 @@ public class Commensalisme {
         return ontwikkelingssnelheid;
     }
 
-    public List<CommMulti_Eigenschap> getMultiEigenschappen() {
+    public ArrayList<CommMulti_Eigenschap> getMultiEigenschappen() {
         return multiEigenschappen;
     }
 }

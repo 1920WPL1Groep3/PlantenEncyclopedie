@@ -1,23 +1,22 @@
 package Planten.java.model;
 
-import Planten.java.FenoMulti_Eigenschap;
+import java.util.ArrayList;
 
-import java.util.List;
-
+/**@author Siebe*/
 public class Fenotype {
     private int id;
     private int plant_id;
     private String bladvorm;
-    private int levensvorm;
+    private String levensvorm;
     private String habitus;
     private String bloeiwijze;
     private int bladgrootte;
     private String ratio_bloei_blad;
     private String spruitfenologie;
 
-    private List<FenoMulti_Eigenschap> multiEigenschappen;
+    private ArrayList<FenoMulti_Eigenschap> multiEigenschappen;
 
-    public Fenotype(int id, int plant_id, String bladvorm, int levensvorm, String habitus, String bloeiwijze, int bladgrootte, String ratio_bloei_blad, String spruitfenologie, List<FenoMulti_Eigenschap> multiEigenschappen) {
+    public Fenotype(int id, int plant_id, String bladvorm, String levensvorm, String habitus, String bloeiwijze, int bladgrootte, String ratio_bloei_blad, String spruitfenologie, ArrayList<FenoMulti_Eigenschap> multiEigenschappen) {
         this.id = id;
         this.plant_id = plant_id;
         this.bladvorm = bladvorm;
@@ -42,7 +41,7 @@ public class Fenotype {
         return bladvorm;
     }
 
-    public int getLevensvorm() {
+    public String getLevensvorm() {
         return levensvorm;
     }
 
@@ -66,7 +65,7 @@ public class Fenotype {
         return spruitfenologie;
     }
 
-    public List<FenoMulti_Eigenschap> getMultiEigenschappen() {
+    public ArrayList<FenoMulti_Eigenschap> getMultiEigenschappen() {
         return multiEigenschappen;
     }
 }
