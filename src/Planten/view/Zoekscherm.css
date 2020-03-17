@@ -71,39 +71,74 @@
     -fx-text-fill: #efefef;
     -fx-prompt-text-fill: #d0d0d0;
     -fx-background-insets: 0, 1;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+
 }
 
 .combo-box-popup .list-view .list-cell
 {
-    -fx-padding: 4 0 4 5;
-    /* No alternate highlighting */
-    -fx-background-color: white;
+    -fx-background-color: #868181;
+    -fx-font-family: "Arial";
+    -fx-text-alignment: center;
+    -fx-font-size: 13px;
+   /* -fx-background-radius: 5pt 5pt;*/
+    -fx-text-fill: #efefef;
+    -fx-prompt-text-fill: #d0d0d0;
+    -fx-background-insets: 0, 1;
+
 }
 
 .combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover
 {
-    -fx-background: -fx-accent;
-    -fx-background-color: -fx-selection-bar;
-    -fx-text-fill: -fx-selection-bar-text;
+    -fx-background-color: #81bd3d;
+    -fx-font-family: "Arial";
+    -fx-text-alignment: center;
+    -fx-font-size: 13px;
+   -fx-background-radius: 5pt 5pt;
+    -fx-text-fill: #514e4e;
+    -fx-prompt-text-fill: #d0d0d0;
+    -fx-background-insets: 0, 1;
+
 }
 
 .combo-box-popup .list-view .list-cell:filled:hover
 {
-    -fx-background-color: white;
-    -fx-text-fill: -fx-text-inner-color;
+    -fx-background-color: #81bd3d;
+    -fx-font-family: "Arial";
+    -fx-text-alignment: center;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5pt 5pt;
+    -fx-text-fill: #514e4e;
+    -fx-prompt-text-fill: #d0d0d0;
+    -fx-background-insets: 0, 1;
+
 }
 
 
 .combo-box-base:hover
 {
-    -fx-color: -fx-hover-base;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+    -fx-background-color: #81bd3d;
+    -fx-font-family: "Arial";
+    -fx-text-alignment: center;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5pt 5pt;
+    -fx-text-fill: #514e4e;
+    -fx-prompt-text-fill: #d0d0d0;
+    -fx-background-insets: 0, 1;
+
 }
 
 .combo-box-base:showing
 {
-    -fx-color: -fx-pressed-base;
+    -fx-background-color: #868181;
+    -fx-font-family: "Arial";
+    -fx-text-alignment: center;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5pt 5pt;
+    -fx-text-fill: #efefef;
+    -fx-prompt-text-fill: #d0d0d0;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+
 }
 
 .zoekbalk{
