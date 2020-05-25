@@ -25,10 +25,10 @@ public class main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/Zoekscherm.fxml"));
         primaryStage.setTitle("PlantenEncyclopedie");
 
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
 
 
-        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+      /*  root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 xOffset = event.getSceneX();
@@ -43,7 +43,7 @@ public class main extends Application {
                 primaryStage.setY(event.getScreenY() - yOffset);
             }
         });
-
+*/
 
 
         primaryStage.setScene(new Scene(root, 1278, 858));
